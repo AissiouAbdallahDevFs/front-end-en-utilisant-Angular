@@ -1,3 +1,18 @@
 <h2>Olympic games app</h2>
 <hr />
 <p>{{ (olympics$ | async)?.length }} data loaded</p>
+<div *ngIf="olympics$ | async as countries">
+    <h1>Olympic Countries and Total Medals</h1>
+    <div class="p-grid p-nogutter p-justify-center">
+      <div class="p-col-10">
+        <p-chart
+          [type]="'pie'"
+          [data]="pieData"
+          [options]="chartOptions"
+          [width]="'400'"
+          [height]="'400'"
+          (click)="onChartClick($event)"
+        ></p-chart>
+      </div>
+    </div>
+  </div>
