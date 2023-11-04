@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   };
   public countriesData: countryData[] = [];
   public participateData: number = 0; 
+  public totalCount: number = 0;
 
   constructor(private olympicService: OlympicService, private router: Router) {}
 
@@ -49,7 +50,19 @@ export class HomeComponent implements OnInit {
           label: country.country,
           medalsCount: this.calculateTotalMedals(country),
         }));
-        this.participateData = 3;
+        const total  = data.reduce((result: { years: Set<number>, count: number }, country: Country) => {
+          country.participations.forEach(participation => {
+            result.years.add(participation.year);
+          });
+          result.count = result.years.size;
+          return result;
+        }, { years: new Set<number>(), count: 0 });
+        this.participateData = total.count;
+       
+
+      
+
+
 
         
 
