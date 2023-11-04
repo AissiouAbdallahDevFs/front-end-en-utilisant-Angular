@@ -1,10 +1,23 @@
 <div class="container">
-    <h2>Détails du pays : {{ countryData.country }}</h2>
-  
+    <h2 class="TitleBox">Détails du pays : {{ countryData?.country }}</h2>
+    <div class="h3Box">
+      <div class="TitleBox1" >
+        <p>Total of entries </p>
+        <p><strong>{{entries}}</strong></p>
+      </div>
+      <div class="TitleBox1" >
+        <p>Total number medals </p>
+        <p><strong>{{totalMedals}}</strong></p>
+      </div>
+      <div class="TitleBox2">
+        <p >Total number of athletes</p>
+        <p><strong> {{ totalathleteCount }}</strong></p>
+      </div>
+    </div>
     <div class="chart-container">
       <canvas #medalsByYearChart></canvas>
-
     </div>
+    <button class="btn btn-primary" (click)="backToHome()">Back</button>
   </div>
   
 

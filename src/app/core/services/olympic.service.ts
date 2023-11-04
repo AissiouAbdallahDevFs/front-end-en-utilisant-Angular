@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
+interface Country {
+  id: number;
+  country: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -33,7 +38,7 @@ export class OlympicService {
     return this.olympics$.pipe(
       map((olympics) => {
         if (olympics) {
-          return olympics.find((country: any) => country.id === id);
+          return olympics.find((country: Country) => country.id === id);
         }
         return null;
       })

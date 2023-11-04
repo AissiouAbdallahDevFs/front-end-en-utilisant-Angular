@@ -1,8 +1,17 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+<div class="TitleBox">
+    <h1>Medels per Country </h1>
+  </div>
+  <div class="h3Box">
+    <div class="TitleBox1" >
+      <p>Number of Jos </p>
+      <p><strong>{{ participateData }}</strong></p>
+    </div>
+    <div class="TitleBox2">
+      <p >Number Of Countries</p>
+      <p><strong> {{ countriesData.length }}</strong></p>
+    </div>
+  </div>
 <div *ngIf="olympics$ | async as countries">
-    <h1>Olympic Countries and Total Medals</h1>
     <div class="p-grid p-nogutter p-justify-center">
       <div class="p-col-10">
         <p-chart
