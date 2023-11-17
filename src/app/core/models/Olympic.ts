@@ -10,8 +10,13 @@ export interface countryData {
     medalsCount: number;
 }
 export interface pieData {
-    labels: string[];
-    datasets: any[];
+  labels: string[];
+  datasets: PieDataset[];
+}
+
+export interface PieDataset {
+  data: number[];
+  backgroundColor: string[];
 }
 export interface chartOptions {
     responsive: boolean;
@@ -53,7 +58,7 @@ export interface participateData {
   }
   export interface medalsByYearData {
     labels: string[];
-    datasets: any[];
+    datasets: PieDataset[];
   }
   export interface Participation {
     id: number;
@@ -74,10 +79,7 @@ export interface participateData {
     label: string;
     medalsCount: number;
   }
-  export interface pieData {
-    labels: string[];
-    datasets: any[];
-  }
+
   export interface chartOptions {
     responsive: boolean;
     maintainAspectRatio: boolean;
