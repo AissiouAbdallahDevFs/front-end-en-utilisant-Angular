@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
           label: country.country,
           medalsCount: this.calculateTotalMedals(country),
         }));
+       
         const total  = data.reduce((result: { years: Set<number>, count: number }, country: Country) => {
           country.participations.forEach(participation => {
             result.years.add(participation.year);
@@ -58,13 +59,6 @@ export class HomeComponent implements OnInit {
           return result;
         }, { years: new Set<number>(), count: 0 });
         this.participateData = total.count;
-       
-
-      
-
-
-
-        
 
         this.pieData = {
           labels: this.countriesData.map((countryData: countryData) => countryData.label),
